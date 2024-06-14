@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">FirstApp</string>
-    <string name="dummy_text">Biplap Neupane</string>
-    <string name="dummy_text2">Prime college</string>
+    <string name="app_name">Biplap</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_phone">Enter your Phone</string>
+    <string name="Clear">Clear</string>
+    <string name="enter_your_address">Enter your Address</string>
+    <string name="php">PHP</string>
+    <string name="Cpp">C++</string>
+    <string name="java">Java</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="submit">Submit</string>
+    <string name="explictbtn">ExplictBtn</string>
+    <string name="welcome_to_second_page">Welcome to Second Page</string>
+    <string name="biplap">Biplap</string>
 </resources>

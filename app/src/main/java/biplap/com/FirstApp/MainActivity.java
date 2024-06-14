@@ -1,24 +1,183 @@
 package biplap.com.FirstApp;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btn;
+    Button clrButton;
+    Button explictButton;
+    Button biplap;
+    EditText nameEditText;
+    EditText emailEditText;
+    EditText phoneEditText;
+    EditText passwordEditText;
+    EditText addressEditText;
+    CheckBox javaCheckBox;
+    CheckBox cPlusPlusCheckBox;
+    CheckBox phpCheckBox;
+    RadioGroup genderRadioGroup;
+    TextView outputTextView;
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        btn = findViewById(R.id.button);
+        clrButton = findViewById(R.id.clear_button);
+        explictButton=findViewById(R.id.explict_button);
+        biplap=findViewById(R.id.biplapneupane);
+
+        nameEditText = findViewById(R.id.name);
+        emailEditText = findViewById(R.id.editTextTextEmailAddress);
+        phoneEditText = findViewById(R.id.editTextPhone);
+        passwordEditText = findViewById(R.id.password_toggle);
+        addressEditText = findViewById(R.id.address);
+        javaCheckBox = findViewById(R.id.JavaCheck);
+        cPlusPlusCheckBox = findViewById(R.id.CPlusPlus);
+        phpCheckBox = findViewById(R.id.PhpCheck);
+        genderRadioGroup = findViewById(R.id.radioGroup);
+        outputTextView = findViewById(R.id.output_text);
+
+        clrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Clear all the text fields
+                nameEditText.setText("");
+                emailEditText.setText("");
+                phoneEditText.setText("");
+                passwordEditText.setText("");
+                addressEditText.setText("");
+
+                // Clear the checkboxes
+                javaCheckBox.setChecked(false);
+                cPlusPlusCheckBox.setChecked(false);
+                phpCheckBox.setChecked(false);
+
+                // Clear the radio group
+                genderRadioGroup.clearCheck();
+
+                // Clear the output text view
+                outputTextView.setText("");
+
+                Toast.makeText(MainActivity.this, "Successfully Cleared!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                String name = nameEditText.getText().toString();
+                String email = emailEditText.getText().toString();
+                String phone = phoneEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                String address = addressEditText.getText().toString();
+
+                // Check if any of the fields are empty
+                if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || address.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // Get the selected checkboxes
+                StringBuilder selectedLanguages = new StringBuilder("Selected languages: ");
+                boolean isSelected = false;
+                if (javaCheckBox.isChecked()) {
+                    selectedLanguages.append("Java ");
+                    isSelected = true;
+                }
+                if (cPlusPlusCheckBox.isChecked()) {
+                    selectedLanguages.append("C++ ");
+                    isSelected = true;
+                }
+                if (phpCheckBox.isChecked()) {
+                    selectedLanguages.append("PHP ");
+                    isSelected = true;
+                }
+                if (!isSelected) {
+                    selectedLanguages.append("None");
+                }
+
+                // Get the selected radio button
+                int selectedGenderId = genderRadioGroup.getCheckedRadioButtonId();
+                RadioButton selectedRadioButton = findViewById(selectedGenderId);
+                String gender = selectedRadioButton == null ? "Not specified" : selectedRadioButton.getText().toString();
+
+                Toast.makeText(MainActivity.this, "Successfully Submitted!!", Toast.LENGTH_SHORT).show();
+                //like a anchor tag
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("http://www.google.com"));
+//                startActivity(intent);
+
+                // Display the text in the TextView
+                outputTextView.setText("Name: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nPassword: " + password + "\nAddress: " + address + "\nGender: " + gender + "\n" + selectedLanguages.toString());
+            }
+        });
+        explictButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, SecondActivities.class);
+                startActivity(intent);
+
+            }
+        });
+        biplap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
+                startActivity(intent);
+            }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        // Create the object of AlertDialog Builder class
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+
+        // Set the message to show for the Alert time
+        builder.setMessage("The Data will be deleted.");
+
+        // Set Alert Title
+        builder.setTitle("Do you want to exit?");
+
+        // Set Cancelable false to prevent the dialog from being dismissed when clicking outside the Dialog Box
+        builder.setCancelable(false);
+
+        // Set the positive button with "Yes" and define its OnClickListener
+        builder.setPositiveButton("Yes", (dialog, which) -> {
+            // When the user clicks yes button, call super.onBackPressed() to close the app
+            super.onBackPressed();
+        });
+
+        // Set the Negative button with "No" and define its OnClickListener
+        builder.setNegativeButton("No", (dialog, which) -> {
+            // If user clicks no, cancel the dialog
+            dialog.cancel();
+        });
+
+        // Create the AlertDialog
+        AlertDialog alertDialog = builder.create();
+        // Show the AlertDialog
+        alertDialog.show();
+    }
+
 }

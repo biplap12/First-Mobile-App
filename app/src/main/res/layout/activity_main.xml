@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/clear_button"
-        android:layout_width="111dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroup"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="11dp"
-        android:text="@string/Clear" />
 
     <EditText
         android:id="@+id/name"
@@ -30,7 +21,6 @@
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@id/name"
         android:layout_marginTop="16dp"
         android:hint="@string/enter_your_email"
         android:inputType="textEmailAddress"
@@ -40,7 +30,6 @@
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@id/editTextTextEmailAddress"
         android:layout_marginTop="16dp"
         android:hint="@string/enter_your_phone"
         android:inputType="phone"
@@ -50,7 +39,6 @@
         android:id="@+id/password_toggle"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@id/editTextPhone"
         android:layout_marginTop="16dp"
         android:hint="@string/enter_your_password"
         android:inputType="textWebPassword"
@@ -60,97 +48,98 @@
         android:id="@+id/address"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@id/password_toggle"
         android:layout_marginTop="16dp"
         android:hint="@string/enter_your_address"
         android:inputType="text"
         android:textColorHint="@color/brown" />
 
-    <CheckBox
-        android:id="@+id/JavaCheck"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/address"
-        android:layout_marginTop="16dp"
-        android:text="@string/java" />
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
 
-    <CheckBox
-        android:id="@+id/CPlusPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/JavaCheck"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-50dp"
-        android:layout_marginEnd="252dp"
-        android:text="@string/Cpp" />
+        <CheckBox
+            android:id="@+id/JavaCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/java" />
 
-    <CheckBox
-        android:id="@+id/PhpCheck"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/CPlusPlus"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-50dp"
-        android:layout_marginEnd="154dp"
-        android:text="@string/php" />
+        <CheckBox
+            android:id="@+id/CPlusPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cpp" />
+
+        <CheckBox
+            android:id="@+id/PhpCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/php" />
+    </LinearLayout>
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="163dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/PhpCheck"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="16dp">
 
         <RadioButton
             android:id="@+id/radioButtonMale"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/male" />
 
         <RadioButton
             android:id="@+id/radioButtonFemale"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/female" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="104dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroup"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="17dp"
-        android:text="@string/submit" />
+        android:orientation="horizontal"
+        android:layout_marginStart="5dp"
+        >
 
-    <Button
-        android:id="@+id/explict_button"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroup"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="14dp"
-        android:text="@string/explictbtn" />
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Clear"
+            android:layout_marginStart="5dp"
+            />
+
+        <Button
+            android:id="@+id/explict_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/explictbtn" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/submit" />
+
+        <Button
+            android:id="@+id/biplapneupane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/new_form" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/output_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:text=""
         android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/biplapneupane"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="290dp"
-        android:layout_marginBottom="180dp"
-        android:text="@string/biplap" />
-</RelativeLayout>
+</LinearLayout>

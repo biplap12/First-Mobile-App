@@ -15,4 +15,9 @@
     <string name="explictbtn">ExplictBtn</string>
     <string name="welcome_to_second_page">Welcome to Second Page</string>
     <string name="biplap">Biplap</string>
+    <string name="Enter_Name">Name</string>
+    <string name="Enter_Address">Address</string>
+    <string name="Enter_Email">Email</string>
+    <string name="Enter_Mobile_no">Mobile No.</string>
+    <string name="new_form">Form</string>
 </resources>

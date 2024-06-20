@@ -134,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, SecondActivities.class);
+                intent.putExtra("name","Message from first activities.");
+                intent.putExtra("message", nameEditText.getText().toString());
                 startActivity(intent);
 
             }
@@ -141,8 +143,9 @@ public class MainActivity extends AppCompatActivity {
         biplap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
+                Intent intent = new Intent(MainActivity.this,ThirdActivities.class);
                 startActivity(intent);
             }
         });

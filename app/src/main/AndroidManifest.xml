@@ -13,6 +13,12 @@
         android:theme="@style/Theme.FirstApp"
         tools:targetApi="31">
         <activity
+            android:name=".ForthActivities"
+            android:exported="false" />
+        <activity
+            android:name=".ThirdActivities"
+            android:exported="false" />
+        <activity
             android:name=".SecondActivities"
             android:exported="false" />
         <activity

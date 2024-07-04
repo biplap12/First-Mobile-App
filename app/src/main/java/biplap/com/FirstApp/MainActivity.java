@@ -1,9 +1,13 @@
 package biplap.com.FirstApp;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,15 +17,19 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btn;
     Button clrButton;
     Button explictButton;
-    Button biplap;
+    Button form;
+    Button fragmentLayoutBtn;
+    Button fragmentLayouCWtBtn;
     EditText nameEditText;
     EditText emailEditText;
     EditText phoneEditText;
@@ -33,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup genderRadioGroup;
     TextView outputTextView;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.button);
         clrButton = findViewById(R.id.clear_button);
         explictButton=findViewById(R.id.explict_button);
-        biplap=findViewById(R.id.biplapneupane);
+        form=findViewById(R.id.biplapneupane);
 
         nameEditText = findViewById(R.id.name);
         emailEditText = findViewById(R.id.editTextTextEmailAddress);
@@ -54,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         phpCheckBox = findViewById(R.id.PhpCheck);
         genderRadioGroup = findViewById(R.id.radioGroup);
         outputTextView = findViewById(R.id.output_text);
+        fragmentLayoutBtn = findViewById(R.id.fragmentLayoutBtn);
+        fragmentLayouCWtBtn = findViewById(R.id.fragmentLayouCWtBtn);
 
         clrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,12 +151,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        biplap.setOnClickListener(new View.OnClickListener() {
+        form.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
                 Intent intent = new Intent(MainActivity.this,ThirdActivities.class);
+                startActivity(intent);
+            }
+        });
+        fragmentLayoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
+                Intent intent = new Intent(MainActivity.this,FragmentLearningActivity.class);
+                startActivity(intent);
+            }
+        });
+        fragmentLayouCWtBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
+                Intent intent = new Intent(MainActivity.this,FragmentClassworkActivity.class);
                 startActivity(intent);
             }
         });
@@ -183,4 +212,52 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.settings) {
+            showSettingsDialog("Settings");
+        } else if (id == R.id.edit) {
+//            Toast.makeText(this, "Edit Clicked", Toast.LENGTH_SHORT).show();
+            showSettingsDialog("Edit");
+
+        } else if (id == R.id.delete) {
+//            Toast.makeText(this, "Delete Clicked", Toast.LENGTH_SHORT).show();
+            showSettingsDialog("Delete");
+        } else if (id == R.id.save) {
+//            Toast.makeText(this, "Save Clicked", Toast.LENGTH_SHORT).show();
+            showSettingsDialog("Save");
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void showSettingsDialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirmation")
+                .setMessage("Are you sure you want to " + message + "?")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Handle positive button click
+                        Toast.makeText(MainActivity.this, message + " Clicked", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Handle negative button click
+                        Toast.makeText(MainActivity.this, message + " Click Cancelled", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .show(); // Call show() to display the AlertDialog
+    }
+
+
+
 }
+

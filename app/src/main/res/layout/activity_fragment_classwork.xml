@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/salmon"
+    tools:context=".FragmentClassworkActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frameLayoutCW">
+
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/fragmentClassworkBtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Button1" />
+
+    <Button
+        android:id="@+id/fragmentClassworkBtn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@+id/fragmentClassworkBtn1"
+        android:text="Button2" />
+    <Button
+        android:id="@+id/fragmentClassworkBtn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@+id/fragmentClassworkBtn2"
+        android:text="Button3" />
+    <Button
+        android:id="@+id/fragmentClassworkBtn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/fragmentClassworkBtn3"
+        android:text="Button4" />
+
+</RelativeLayout>

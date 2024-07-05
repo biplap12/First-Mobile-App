@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".SecondActivities">
 
 <TextView
@@ -29,4 +28,16 @@ android:fontFamily="serif"
     android:gravity="center"
      />
 
+    <Button
+        android:id="@+id/btnContextMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Context menu"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/btnPopupMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show PopUp menu"
+        android:layout_gravity="center"/>
     </LinearLayout>

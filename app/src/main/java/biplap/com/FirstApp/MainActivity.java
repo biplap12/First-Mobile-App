@@ -226,7 +226,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.edit) {
 //            Toast.makeText(this, "Edit Clicked", Toast.LENGTH_SHORT).show();
             showSettingsDialog("Edit");
-
         } else if (id == R.id.delete) {
 //            Toast.makeText(this, "Delete Clicked", Toast.LENGTH_SHORT).show();
             showSettingsDialog("Delete");

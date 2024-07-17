@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SecondActivities">
+    tools:context=".SecondActivities"
+    android:layout_marginTop="@android:dimen/app_icon_size">
 
 <TextView
 android:id="@+id/textView"
@@ -39,5 +40,17 @@ android:fontFamily="serif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show PopUp menu"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/btnAlert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Alert Dialog"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/btnCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Custom Dialog"
         android:layout_gravity="center"/>
     </LinearLayout>

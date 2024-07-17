@@ -13,6 +13,9 @@
         android:theme="@style/Theme.FirstApp"
         tools:targetApi="31">
         <activity
+            android:name=".ListViewExampleActivities"
+            android:exported="false" />
+        <activity
             android:name=".FragmentClassworkActivity"
             android:exported="false" />
         <activity

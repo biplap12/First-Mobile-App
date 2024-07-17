@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button form;
     Button fragmentLayoutBtn;
     Button fragmentLayouCWtBtn;
+    Button listviewBtn;
     EditText nameEditText;
     EditText emailEditText;
     EditText phoneEditText;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         outputTextView = findViewById(R.id.output_text);
         fragmentLayoutBtn = findViewById(R.id.fragmentLayoutBtn);
         fragmentLayouCWtBtn = findViewById(R.id.fragmentLayouCWtBtn);
+        listviewBtn=findViewById(R.id.listviewBtn);
 
         clrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,6 +177,13 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
                 Intent intent = new Intent(MainActivity.this,FragmentClassworkActivity.class);
+                startActivity(intent);
+            }
+        });
+        listviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ListViewExampleActivities.class);
                 startActivity(intent);
             }
         });

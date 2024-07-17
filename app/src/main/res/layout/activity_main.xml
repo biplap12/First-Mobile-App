@@ -134,6 +134,12 @@
             android:text="@string/new_form" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="5dp">
+
     <Button
         android:id="@+id/fragmentLayoutBtn"
         android:layout_width="wrap_content"
@@ -146,6 +152,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="FragmentCW" />
+    <Button
+        android:id="@+id/listviewBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="Listview" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/output_text"
@@ -155,4 +169,5 @@
         android:layout_gravity="center_horizontal"
         android:text=""
         android:textSize="18sp" />
+
 </LinearLayout>

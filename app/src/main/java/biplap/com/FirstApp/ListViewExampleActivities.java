@@ -16,7 +16,21 @@ import androidx.core.view.WindowInsetsCompat;
 public class ListViewExampleActivities extends AppCompatActivity {
 
     ListView listView;
-    String [] language= {"Java","kotlin","React Native","Flutter","MA-UI","Java","kotlin","React Native","Flutter","MA-UI","Java","kotlin","React Native","Flutter","MA-UI","Java","kotlin","React Native","Flutter","MA-UI"};
+    String[] languages = {
+            "Java", "Kotlin", "React Native", "Flutter", "MA-UI",
+            "Java", "Kotlin", "React Native", "Flutter", "MA-UI",
+            "Java", "Kotlin", "React Native", "Flutter", "MA-UI",
+            "Java", "Kotlin", "React Native", "Flutter", "MA-UI"
+    };
+
+    int[] itemImages = {
+            R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img,
+            R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img,
+            R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img,
+            R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img, R.drawable.img
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +42,25 @@ public class ListViewExampleActivities extends AppCompatActivity {
             return insets;
         });
         listView= findViewById(R.id.listView);
-        ArrayAdapter arrayAdapter= new ArrayAdapter(ListViewExampleActivities.this, android.R.layout.simple_expandable_list_item_1,language);
-        listView.setAdapter(arrayAdapter);
+        //----------------for single entries--------------------
+//
+//        ArrayAdapter arrayAdapter= new ArrayAdapter(ListViewExampleActivities.this, android.R.layout.simple_expandable_list_item_1,language);
+//        listView.setAdapter(arrayAdapter);
 
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(ListViewExampleActivities.this,"Selected::"+language[position],Toast.LENGTH_LONG).show();
+//            }
+//        });
+
+        //----------------for multiple entries--------------------
+        CustomListAdapter customListAdapter = new CustomListAdapter(ListViewExampleActivities.this, languages, itemImages);
+        listView.setAdapter(customListAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ListViewExampleActivities.this,"Selected::"+language[position],Toast.LENGTH_LONG).show();
+                Toast.makeText(ListViewExampleActivities.this, "Selected:: " + languages[position], Toast.LENGTH_SHORT).show();
             }
         });
     }

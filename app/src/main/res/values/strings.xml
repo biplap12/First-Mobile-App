@@ -33,5 +33,7 @@
     <string name="do_you_want_to_continue_enter_ok_other_wise_click_cancel">Do you want to continue enter ok other wise click cancel</string>
     <string name="ok">OK</string>
     <string name="cancel">cancel</string>
+    <string name="gridview">Gridview</string>
+    <string name="grid_view_example">Grid View Example</string>
 
 </resources>

@@ -24,7 +24,7 @@ import androidx.core.view.GravityCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn;
+    Button btn,gridviewBtn;
     Button clrButton;
     Button explictButton;
     Button form;
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentLayoutBtn = findViewById(R.id.fragmentLayoutBtn);
         fragmentLayouCWtBtn = findViewById(R.id.fragmentLayouCWtBtn);
         listviewBtn=findViewById(R.id.listviewBtn);
+        gridviewBtn=findViewById(R.id.gridviewBtn);
 
         clrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,6 +178,15 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(Intent.ACTION_VIEW);
 //                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
                 Intent intent = new Intent(MainActivity.this,FragmentClassworkActivity.class);
+                startActivity(intent);
+            }
+        });
+        gridviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse("https://www.biplapneupane.com.np/"));
+                Intent intent = new Intent(MainActivity.this,GridViewExmpleActivity.class);
                 startActivity(intent);
             }
         });

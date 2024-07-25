@@ -35,5 +35,6 @@
     <string name="cancel">cancel</string>
     <string name="gridview">Gridview</string>
     <string name="grid_view_example">Grid View Example</string>
+    <string name="recycler_view">Recycler view</string>
 
 </resources>

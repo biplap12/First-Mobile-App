@@ -24,7 +24,7 @@ import androidx.core.view.GravityCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn,gridviewBtn;
+    Button btn,gridviewBtn,recyclerviewBtn;
     Button clrButton;
     Button explictButton;
     Button form;
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentLayouCWtBtn = findViewById(R.id.fragmentLayouCWtBtn);
         listviewBtn=findViewById(R.id.listviewBtn);
         gridviewBtn=findViewById(R.id.gridviewBtn);
+        recyclerviewBtn=findViewById(R.id.recyclerviewBtn);
 
         clrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,6 +195,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,ListViewExampleActivities.class);
+                startActivity(intent);
+            }
+        });
+        recyclerviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,RecyclerViewActivity.class);
                 startActivity(intent);
             }
         });

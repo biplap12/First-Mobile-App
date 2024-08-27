@@ -1,10 +1,8 @@
 package biplap.com.FirstApp;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,13 +18,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn,gridviewBtn,recyclerviewBtn;
+    Button btn,gridviewBtn,recyclerviewBtn,postServer,getServer;
     Button clrButton;
-    Button explictButton;
+    Button explictButton,sqLite;
     Button form;
     Button fragmentLayoutBtn;
     Button fragmentLayouCWtBtn;
@@ -69,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         listviewBtn=findViewById(R.id.listviewBtn);
         gridviewBtn=findViewById(R.id.gridviewBtn);
         recyclerviewBtn=findViewById(R.id.recyclerviewBtn);
+        sqLite=findViewById(R.id.sqLite);
+        postServer=findViewById(R.id.postServer);
+        getServer=findViewById(R.id.getServer);
 
         clrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,6 +202,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,RecyclerViewActivity.class);
+                startActivity(intent);
+            }
+        });
+        sqLite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SqLiteTutorialActivity.class);
+                startActivity(intent);
+            }
+        });
+        postServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,PostDataServerActivity.class);
+                startActivity(intent);
+            }
+        });
+        getServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,GetDataActivity.class);
                 startActivity(intent);
             }
         });

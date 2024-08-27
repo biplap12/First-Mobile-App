@@ -51,4 +51,5 @@
 <color name="slateblue">#6A5ACD</color>
 <color name="darkorchid">#9932CC</color>
     <color name="green_one">#7BBE2E</color>
+    <color name="black">#000000</color>
 </resources>
